@@ -80,8 +80,14 @@ export default function DiscountCodesPage() {
             marginBottom: 4,
             backgroundColor: '#fff',
             borderRadius: '999px',
+            '& label.Mui-focused': {
+              color: '#28a745', // Lime green when focused
+            },
             '& .MuiOutlinedInput-root': {
               borderRadius: '999px',
+              '&.Mui-focused fieldset': {
+                borderColor: '#32CD32', // Lime green when focused
+              },
             },
           }}
         />
@@ -132,7 +138,15 @@ export default function DiscountCodesPage() {
                   ) : (
                     <Button
                       variant="contained"
-                      color="primary"
+                      sx={{
+                        backgroundColor: '#32CD32', // Lime green
+                        color: 'white', // White text
+                        borderRadius: '20px', // Rounded button
+                        padding: '10px 20px', // Add padding for better size
+                        '&:hover': {
+                          backgroundColor: '#28a745', // Slightly darker lime on hover
+                        },
+                      }}
                       href={safeDecodeURI(item.link)}
                       target="_blank"
                       rel="noopener noreferrer"
