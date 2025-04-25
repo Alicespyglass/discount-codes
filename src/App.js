@@ -58,68 +58,87 @@ export default function DiscountCodesPage() {
   };
 
   return (
-    <Box sx={{ maxWidth: '1200px', margin: 'auto', padding: 2 }}>
-      <Typography variant="h3" gutterBottom>
-        Discount Codes
-      </Typography>
-      <TextField
-        label="Search company..."
-        variant="outlined"
-        fullWidth
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        sx={{ marginBottom: 4 }}
-      />
-      
-      <Grid container spacing={4}>
-        {filtered.map((item, idx) => (
-          <Grid item xs={12} sm={6} md={4} key={idx}>
-            <Card sx={{ height: '100%' }}>
-              <CardContent>
-                <Box display="flex" alignItems="center" gap={2} mb={2}>
-                  <img
-                    src={item.logo}
-                    alt={`${item.company} logo`}
-                    style={{ width: '50px', height: '50px', objectFit: 'contain' }}
-                  />
-                  <Typography variant="h6" component="a" href={safeDecodeURI(item.link)} target="_blank" rel="noopener noreferrer">
-                    {item.company}
-                  </Typography>
-                </Box>
-                <Typography variant="body2" color="textSecondary" mb={2}>
-                  {item.offer}
-                </Typography>
-                {item.code ? (
-                  <Box display="flex" alignItems="center" gap={2}>
-                    <Typography variant="body1" sx={{ backgroundColor: '#f1f1f1', padding: 1, borderRadius: 1 }}>
-                      {item.code}
-                    </Typography>
-                    <Button
-                      variant="outlined"
-                      color="primary"
-                      size="small"
-                      onClick={() => copyToClipboard(item.code)}
-                      startIcon={<FileCopy />}
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        padding: 4,
+      }}
+    >
+      <Box sx={{ width: '100%', maxWidth: '1200px', textAlign: 'center' }}>
+        <Typography variant="h3" gutterBottom>
+          Discount Codes
+        </Typography>
+  
+        <TextField
+          label="Search company..."
+          variant="outlined"
+          fullWidth
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          sx={{ marginBottom: 4 }}
+        />
+  
+        <Grid container spacing={4} justifyContent="center">
+          {filtered.map((item, idx) => (
+            <Grid item xs={12} sm={6} md={4} key={idx}>
+              <Card sx={{ height: '100%' }}>
+                <CardContent>
+                  <Box display="flex" alignItems="center" gap={2} mb={2}>
+                    <img
+                      src={item.logo}
+                      alt={`${item.company} logo`}
+                      style={{ width: '50px', height: '50px', objectFit: 'contain' }}
+                    />
+                    <Typography
+                      variant="h6"
+                      component="a"
+                      href={safeDecodeURI(item.link)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{ textDecoration: 'none', color: 'inherit' }}
                     >
-                      Copy
-                    </Button>
+                      {item.company}
+                    </Typography>
                   </Box>
-                ) : (
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    href={safeDecodeURI(item.link)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Referral Link
-                  </Button>
-                )}
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+                  <Typography variant="body2" color="textSecondary" mb={2}>
+                    {item.offer}
+                  </Typography>
+                  {item.code ? (
+                    <Box display="flex" alignItems="center" gap={2}>
+                      <Typography
+                        variant="body1"
+                        sx={{ backgroundColor: '#f1f1f1', padding: 1, borderRadius: 1 }}
+                      >
+                        {item.code}
+                      </Typography>
+                      <Button
+                        variant="outlined"
+                        color="primary"
+                        size="small"
+                        onClick={() => copyToClipboard(item.code)}
+                        startIcon={<FileCopy />}
+                      >
+                        Copy
+                      </Button>
+                    </Box>
+                  ) : (
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      href={safeDecodeURI(item.link)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Referral Link
+                    </Button>
+                  )}
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </Box>
   );
 }
