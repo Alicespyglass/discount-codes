@@ -10,7 +10,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Roboto, Arial, sans-serif',
+    fontFamily: 'sohne, "Helvetica Neue", Helvetica, Arial, sans-serif',
   },
 });
 
