@@ -65,9 +65,9 @@ export default function DiscountCodesPage() {
         padding: 4,
       }}
     >
-      <Box sx={{ width: '100%', maxWidth: '1200px', textAlign: 'center' }}>
-        <Typography variant="h3" gutterBottom>
-          Discount Codes
+      <Box sx={{ width: '50%', mx: 'auto', marginBottom: 4, textAlign: 'center' }}>
+        <Typography variant="h3" gutterBottom >
+          Ace Discount Codes
         </Typography>
   
         <TextField
@@ -76,7 +76,14 @@ export default function DiscountCodesPage() {
           fullWidth
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          sx={{ marginBottom: 4 }}
+          sx={{
+            marginBottom: 4,
+            backgroundColor: '#fff',
+            borderRadius: '999px',
+            '& .MuiOutlinedInput-root': {
+              borderRadius: '999px',
+            },
+          }}
         />
   
         <Grid container spacing={4} justifyContent="center">
