@@ -1,13 +1,15 @@
 // webpack.config.js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const isGitHubPages = process.env.NODE_ENV === 'production';
+const repoName = 'acediscountcodes.github.io'; 
 
 module.exports = {
   entry: './src/index.js', // Entry point
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
-    publicPath: '/', // Important for dev server
+    publicPath: isGitHubPages ? `/${repoName}/` : '/', // Important for dev server
   },
   module: {
     rules: [
