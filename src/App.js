@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Grid, Card, CardContent, Typography, TextField, Box } from '@mui/material';
 import { FileCopy } from '@mui/icons-material';
+import zoeLogo from './assets/zoe.png';
+import classpassLogo from './assets/classpass.png';
+import taskrabbitLogo from './assets/taskrabbit.png';
+
 
 // Helper function to safely encode the link for the URI
 const safeEncodeURI = (url) => {
@@ -27,21 +31,21 @@ const discounts = [
     company: "ZOE",
     code: null,
     offer: "10% off",
-    logo: "/zoe.png",
+    logo: zoeLogo,
     link: "https://zoe.com/get-referral?campaign=GB_REF_1M10P&username=1hx61kbh13&source=app-menu&firstname=Alice&utm_medium=zoe_referral&utm_content=link_share&utm_campaign=GB_REF_1M10P&utm_source=whatsapp"
   },
   {
     company: "Classpass",
     code: null,
     offer: "20 bonus credits on your £1 trial",
-    logo: "/classpass.png",
+    logo: classpassLogo,
     link: "https://classpass.com/refer/541UUPN726"
   },
   {
     company: "Task Rabbit",
     code: null,
     offer: "£10 off your first task",
-    logo: "/taskrabbit.png",
+    logo: taskrabbitLogo,
     link: "https://www.taskrabbit.co.uk/s/2uyon/try?utm_source=trycode"
   },
 ];
