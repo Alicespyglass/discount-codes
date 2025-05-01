@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const isGitHubPages = process.env.NODE_ENV === 'production';
 const repoName = 'acediscountcodes.github.io'; 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js', // Entry point
@@ -36,6 +37,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html', // Use your template
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'public/manifest.json', to: 'manifest.json' },
+        { from: 'public/favicon.ico', to: 'favicon.ico' },
+        { from: 'public/logo192.png', to: 'logo192.png' },
+      ],
     }),
   ],
   devServer: {
