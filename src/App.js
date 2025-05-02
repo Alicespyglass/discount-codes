@@ -85,7 +85,7 @@ export default function DiscountCodesPage() {
         padding: 4,
       }}
     >
-      <Box sx={{ width: '50%', mx: 'auto', marginBottom: 4, textAlign: 'center' }}>
+      <Box sx={{ width: '70%', mx: 'auto', marginBottom: 4, textAlign: 'center' }}>
         <Typography variant="h3" gutterBottom >
           Ace Discount Codes
         </Typography>
@@ -111,51 +111,51 @@ export default function DiscountCodesPage() {
             },
           }}
         />
-  
-        <Grid container spacing={4} justifyContent="center">
-          {filtered.map((item, idx) => (
-            <Grid item xs={12} sm={6} md={4} key={idx}>
-              <Card sx={{ height: '100%' }}>
-                <CardContent>
-                  <Box display="flex" alignItems="center" gap={2} mb={2}>
-                    <img
-                      src={item.logo}
-                      alt={`${item.company} logo`}
-                      style={{ width: '50px', height: '50px', objectFit: 'contain' }}
-                    />
-                    <Typography
-                      variant="h6"
-                      component="a"
-                      href={safeDecodeURI(item.link)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      sx={{ textDecoration: 'none', color: 'inherit' }}
-                    >
-                      {item.company}
-                    </Typography>
-                  </Box>
-                  <Typography variant="body2" color="textSecondary" mb={2}>
-                    {item.offer}
+      <Grid container spacing={2} justifyContent="center">
+        {filtered.map((item, idx) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={idx}>
+            <Card sx={{ width: '100%', maxWidth: '233px', display: 'flex', flexDirection: 'column', height: '100%' }}>
+              <CardContent sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                <Box display="flex" alignItems="center" gap={2} mb={2}>
+                  <img
+                    src={item.logo}
+                    alt={`${item.company} logo`}
+                    style={{ width: '50px', height: '50px', objectFit: 'contain' }}
+                  />
+                  <Typography
+                    variant="h6"
+                    component="a"
+                    href={safeDecodeURI(item.link)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ textDecoration: 'none', color: 'inherit' }}
+                  >
+                    {item.company}
                   </Typography>
-                  {item.code ? (
-                    <Box display="flex" alignItems="center" gap={2}>
-                      <Typography
-                        variant="body1"
-                        sx={{ backgroundColor: '#f1f1f1', padding: 1, borderRadius: 1 }}
-                      >
-                        {item.code}
-                      </Typography>
-                      <Button
-                        variant="outlined"
-                        color="primary"
-                        size="small"
-                        onClick={() => copyToClipboard(item.code)}
-                        startIcon={<FileCopy />}
-                      >
-                        Copy
-                      </Button>
-                    </Box>
-                  ) : (
+                </Box>
+                <Typography variant="body2" color="textSecondary" mb={2}>
+                  {item.offer}
+                </Typography>
+                {item.code ? (
+                  <Box display="flex" alignItems="center" gap={2}>
+                    <Typography
+                      variant="body1"
+                      sx={{ backgroundColor: '#f1f1f1', padding: 1, borderRadius: 1 }}
+                    >
+                      {item.code}
+                    </Typography>
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      size="small"
+                      onClick={() => copyToClipboard(item.code)}
+                      startIcon={<FileCopy />}
+                    >
+                      Copy
+                    </Button>
+                  </Box>
+                ) : (
+                  <Box sx={{ mt: 'auto' }}>
                     <Button
                       variant="contained"
                       sx={{
@@ -166,6 +166,7 @@ export default function DiscountCodesPage() {
                         '&:hover': {
                           backgroundColor: '#28a745', // Slightly darker lime on hover
                         },
+                        width: '100%', // Make the button span the full width of the card
                       }}
                       href={safeDecodeURI(item.link)}
                       target="_blank"
@@ -173,7 +174,8 @@ export default function DiscountCodesPage() {
                     >
                       Referral Link
                     </Button>
-                  )}
+                  </Box>
+                )}
                 </CardContent>
               </Card>
             </Grid>
