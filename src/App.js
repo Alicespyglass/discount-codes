@@ -4,6 +4,8 @@ import { FileCopy } from '@mui/icons-material';
 import zoeLogo from './assets/zoe.png';
 import classpassLogo from './assets/classpass.svg';
 import taskrabbitLogo from './assets/taskrabbit.png';
+import umLogo from './assets/urbanmassage.png';
+import goustoLogo from './assets/gousto.png';
 
 
 // Helper function to safely encode the link for the URI
@@ -28,13 +30,6 @@ const safeDecodeURI = (url) => {
 
 const discounts = [
   {
-    company: "ZOE",
-    code: null,
-    offer: "10% off",
-    logo: zoeLogo,
-    link: "https://zoe.com/get-referral?campaign=GB_REF_1M10P&username=1hx61kbh13&source=app-menu&firstname=Alice&utm_medium=zoe_referral&utm_content=link_share&utm_campaign=GB_REF_1M10P&utm_source=whatsapp"
-  },
-  {
     company: "Classpass",
     code: null,
     offer: "20 bonus credits on your £1 trial",
@@ -42,11 +37,32 @@ const discounts = [
     link: "https://classpass.com/refer/541UUPN726"
   },
   {
+    company: "Gousto",
+    code: null,
+    offer: "65% off your first box, PLUS 25% off all other boxes in your first two months",
+    logo: goustoLogo,
+    link: "https://www.gousto.co.uk/raf?promo_code=PETER44635416&utm_source=iosapp"
+  },
+  {
     company: "Task Rabbit",
     code: null,
     offer: "£10 off your first task",
     logo: taskrabbitLogo,
     link: "https://www.taskrabbit.co.uk/s/2uyon/try?utm_source=trycode"
+  },
+  {
+    company: "Urban Massage",
+    code: null,
+    offer: "20% off your first booking",
+    logo: umLogo,
+    link: "https://urban.co/i/RALICECBM2"
+  },
+  {
+    company: "ZOE",
+    code: null,
+    offer: "10% off",
+    logo: zoeLogo,
+    link: "https://zoe.com/get-referral?campaign=GB_REF_1M10P&username=1hx61kbh13&source=app-menu&firstname=Alice&utm_medium=zoe_referral&utm_content=link_share&utm_campaign=GB_REF_1M10P&utm_source=whatsapp"
   },
 ];
 
