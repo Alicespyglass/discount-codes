@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Grid, Card, CardContent, Typography, TextField, Box } from '@mui/material';
 import { FileCopy } from '@mui/icons-material';
 import zoeLogo from './assets/zoe.png';
-import classpassLogo from './assets/classpass.png';
+import classpassLogo from './assets/classpass.svg';
 import taskrabbitLogo from './assets/taskrabbit.png';
 
 
