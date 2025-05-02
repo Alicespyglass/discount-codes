@@ -1,48 +1,53 @@
 // webpack.config.js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const isGitHubPages = process.env.NODE_ENV === 'production';
-const repoName = 'acediscountcodes.github.io'; 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const isProduction = process.env.NODE_ENV === 'production';
+const repoName = 'acediscountcodes.github.io';
+
 module.exports = {
-  entry: './src/index.js', // Entry point
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
-    publicPath: isGitHubPages ? `/${repoName}/` : '/', // Important for dev server
+    publicPath: isProduction ? `/${repoName}/` : '/', // Critical for GH Pages
+    clean: true, // Optional: clean old build files in dist
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/, // JS and JSX
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        use: 'babel-loader',
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader'], // Tailwind
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i, // Images
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/[hash][ext][query]', // keeps assets in subfolder
+        },
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'], // Allow imports without extension
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html', // Use your template
+      template: './public/index.html',
+      inject: 'body', // ensure scripts go at end of body
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'public/manifest.json', to: 'manifest.json' },
-        { from: 'public/favicon.ico', to: 'favicon.ico' },
-        { from: 'public/logo192.png', to: 'logo192.png' },
+        { from: 'public/manifest.json', to: '' },
+        { from: 'public/favicon.ico', to: '' },
+        { from: 'public/logo192.png', to: '' },
+        { from: 'public/logo512.png', to: '' },
       ],
     }),
   ],
