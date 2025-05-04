@@ -6,6 +6,7 @@ import classpassLogo from './assets/classpass.svg';
 import taskrabbitLogo from './assets/taskrabbit.png';
 import umLogo from './assets/urbanmassage.png';
 import goustoLogo from './assets/gousto.png';
+import topcashbackLogo from './assets/topcashback.png';
 
 
 // Helper function to safely encode the link for the URI
@@ -49,6 +50,13 @@ const discounts = [
     offer: "£10 off your first task",
     logo: taskrabbitLogo,
     link: "https://www.taskrabbit.co.uk/s/2uyon/try?utm_source=trycode"
+  },
+  {
+    company: "TopCashback",
+    code: null,
+    offer: "Earn cashback on your purchases",
+    logo: topcashbackLogo,
+    link: "https://www.topcashback.co.uk/ref/alicespyglass"
   },
   {
     company: "Urban Massage",
